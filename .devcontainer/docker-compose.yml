@@ -10,8 +10,8 @@ services:
         required: true
     volumes:
       - type: bind
-        source: /workspaces
-        target: /workspaces
+        source: .
+        target: /workspace
         bind:
           create_host_path: true
     environment:

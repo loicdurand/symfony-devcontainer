@@ -30,7 +30,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && rm -rf /var/lib/apt/lists/*
 
 # Create directories for certs, Caddy logs and Symfony
-RUN mkdir -p RUN mkdir -p /etc/caddy/certs /workspace/var/log \
+RUN mkdir -p /etc/caddy/certs /workspace/var/log \
     && mkdir -p /workspace/var/cache /workspace/var/log/caddy
 
 # Copy Caddy configuration
