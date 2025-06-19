@@ -3,10 +3,17 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-      - .:/workspace
     depends_on:
-      - db
+      db:
+        condition: service_started
+        restart: true
+        required: true
+    volumes:
+      - type: bind
+        source: /workspaces
+        target: /workspaces
+        bind:
+          create_host_path: true
     environment:
       - DATABASE_URL=mysql://mariadb:mariadb@db:3306/mariadb?serverVersion=10.11
     command: caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
