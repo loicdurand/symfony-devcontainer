@@ -1,3 +1,5 @@
 .devcontainer/certs/*.*
 .devcontainer/*-lock.json
+.devcontainer/.devcontainer/var/*
 **/.devpod-*
+var/
