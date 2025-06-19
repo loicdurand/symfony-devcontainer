@@ -25,6 +25,11 @@ RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
 # Setting working directory
 WORKDIR /workspace
 
+# Copy Symfony files
+COPY symfony/composer.json /workspace/composer.json
+COPY symfony/package.json /workspace/package.json
+COPY symfony/.gitignore /workspace/.gitignore
+
 # Installing Symfony CLI
 RUN curl -sS https://get.symfony.com/cli/installer | bash \
     && mv /root/.symfony*/bin/symfony /usr/local/bin/symfony
